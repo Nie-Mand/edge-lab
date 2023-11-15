@@ -1,6 +1,10 @@
-from normal import NormalDistributionSimulator
+from simulator import NormalDistributionSimulator
 from scheduler import Scheduler
 import paho.mqtt.client as mqtt
+from plot import plot
+
+TOPIC = "test/topic"
+MQTT_HOSTNAME = "127.0.0.1"
 
 def main():
     simulator = NormalDistributionSimulator(
@@ -9,8 +13,10 @@ def main():
         standard_deviation=5
     )
 
-    edge = "127.0.0.1"
-    topic = "test/topic"
+    # plot(simulator, 10000, "out/sensor")
+
+    edge = MQTT_HOSTNAME
+    topic = TOPIC
     client = mqtt.Client("Pub")
     client.connect(edge)
 

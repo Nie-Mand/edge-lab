@@ -1,5 +1,8 @@
 
 sensor:
-	@./venv/bin/python3 src/sensor.py
+	@./venv/bin/python3 app/sensor.py
+
+edge:
+	@./venv/bin/python3 app/edge.py
 
 .PHONY: sensor
